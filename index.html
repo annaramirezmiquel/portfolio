@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anna Ramírez — Marketing Digital</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{--c1:#0D0D0D;--c2:#F5F2EC;--c3:#E8411A;--c4:#B8B0A0;--font-d:'Playfair Display',serif;--font-b:'DM Sans',sans-serif;}
+    body{background:var(--c2);color:var(--c1);font-family:var(--font-b);}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2.5rem;border-bottom:1px solid rgba(0,0,0,0.1);position:sticky;top:0;background:var(--c2);z-index:99;}
+    .nav-logo{font-family:var(--font-d);font-size:1.2rem;letter-spacing:-0.02em;}
+    .nav-links{display:flex;gap:1.8rem;}
+    .nav-links a{font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--c4);text-decoration:none;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--c1);}
+    section{padding:3rem 2.5rem;}
+    .section-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c3);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-label::before{content:'';width:1.5rem;height:1px;background:var(--c3);}
+    .section-title{font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,3rem);letter-spacing:-0.02em;margin-bottom:2rem;}
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:2rem 2.5rem;}
+    .hero-eyebrow{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c3);margin-bottom:1rem;}
+    .hero-name{font-family:var(--font-d);font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.2rem;}
+    .hero-name em{color:var(--c3);}
+    .hero-desc{font-size:0.97rem;color:#555;line-height:1.7;max-width:38ch;margin-bottom:2rem;}
+    .hero-cta{display:inline-flex;align-items:center;gap:0.5rem;background:var(--c1);color:var(--c2);padding:0.75rem 1.75rem;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border:none;transition:background 0.2s;}
+    .hero-cta:hover{background:var(--c3);}
+    .hero-visual{display:grid;grid-template-rows:auto auto;gap:0.75rem;}
+    .hero-card-main{background:var(--c1);color:var(--c2);padding:2rem;display:flex;flex-direction:column;gap:0.6rem;}
+    .hero-card-main .tag{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--c3);}
+    .hero-card-main .stat{font-family:var(--font-d);font-size:3rem;line-height:1;}
+    .hero-card-main .stat-label{font-size:0.78rem;color:var(--c4);}
+    .hero-cards-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
+    .hero-card-sm{background:white;padding:1.25rem;border:1px solid rgba(0,0,0,0.08);}
+    .hero-card-sm .tag{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--c4);margin-bottom:0.4rem;}
+    .hero-card-sm .val{font-family:var(--font-d);font-size:1.8rem;font-weight:700;}
+    .hero-card-sm .val.accent{color:var(--c3);}
+    .sobre{background:white;}
+    .sobre-inner{display:grid;grid-template-columns:160px 1fr;gap:3rem;align-items:start;}
+    .sobre-number{font-family:var(--font-d);font-size:6rem;color:rgba(0,0,0,0.04);line-height:1;margin-bottom:0.5rem;}
+    .sobre-bio{font-size:0.97rem;line-height:1.75;color:#444;margin-bottom:1rem;}
+    .sobre-bio strong{color:var(--c1);font-weight:500;}
+    .skills-grid{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.5rem;}
+    .skill-tag{padding:0.3rem 0.8rem;border:1px solid rgba(0,0,0,0.15);font-size:0.75rem;color:#555;}
+    .metricas{background:var(--c1);color:var(--c2);padding:3rem 2.5rem;}
+    .metricas .section-label{color:var(--c3);}
+    .metricas .section-label::before{background:var(--c3);}
+    .metricas .section-title{color:var(--c2);}
+    .met-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);}
+    .met-card{background:var(--c1);padding:1.75rem 1.25rem;}
+    .met-client{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1rem;}
+    .met-num{font-family:var(--font-d);font-size:2.4rem;color:var(--c2);line-height:1;margin-bottom:0.3rem;}
+    .met-num span{font-size:1.1rem;color:var(--c3);}
+    .met-label{font-size:0.75rem;color:rgba(255,255,255,0.4);line-height:1.4;}
+    .met-sub{font-size:0.7rem;color:var(--c3);margin-top:0.6rem;}
+    .proyectos{background:var(--c2);}
+    .proyectos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+    .proyecto-card{background:white;border:1px solid rgba(0,0,0,0.08);padding:1.5rem;cursor:pointer;transition:border-color 0.25s,transform 0.2s;position:relative;overflow:hidden;}
+    .proyecto-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--c3);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+    .proyecto-card:hover::after{transform:scaleX(1);}
+    .proyecto-card:hover{border-color:rgba(232,65,26,0.3);transform:translateY(-2px);}
+    .proyecto-num{font-family:var(--font-d);font-size:0.8rem;color:var(--c4);margin-bottom:1rem;}
+    .proyecto-name{font-family:var(--font-d);font-size:1.05rem;margin-bottom:0.3rem;color:var(--c1);}
+    .proyecto-type{font-size:0.72rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--c4);margin-bottom:0.8rem;}
+    .proyecto-metric{font-size:0.8rem;color:var(--c3);font-weight:500;}
+    .servicios{background:white;}
+    .servicios-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+    .servicio-card{padding:2rem;border:1px solid rgba(0,0,0,0.1);background:var(--c2);position:relative;overflow:hidden;transition:border-color 0.2s;}
+    .servicio-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--c3);transform:scaleY(0);transform-origin:top;transition:transform 0.3s;}
+    .servicio-card:hover::before{transform:scaleY(1);}
+    .servicio-card:hover{border-color:var(--c3);}
+    .servicio-num{font-family:var(--font-d);font-size:0.8rem;color:var(--c4);margin-bottom:1rem;}
+    .servicio-title{font-family:var(--font-d);font-size:1.2rem;margin-bottom:0.6rem;}
+    .servicio-desc{font-size:0.85rem;color:#666;line-height:1.65;}
+    .contacto{background:var(--c3);color:white;text-align:center;padding:3.5rem 2.5rem;}
+    .contacto .section-title{color:white;font-size:clamp(2rem,4vw,3.5rem);margin-bottom:0;}
+    .contacto .section-label{color:rgba(255,255,255,0.6);justify-content:center;}
+    .contacto .section-label::before{background:rgba(255,255,255,0.4);}
+    .contacto-sub{font-size:0.97rem;margin:1rem auto;max-width:40ch;opacity:0.85;line-height:1.65;}
+    .contacto-links{display:flex;justify-content:center;gap:1rem;margin-top:2rem;flex-wrap:wrap;}
+    .contacto-link{padding:0.75rem 1.75rem;border:1px solid rgba(255,255,255,0.5);font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:white;cursor:pointer;background:transparent;transition:background 0.2s;text-decoration:none;display:inline-block;}
+    .contacto-link:hover{background:rgba(255,255,255,0.15);}
+    .contacto-link.filled{background:white;color:var(--c3);border-color:white;}
+    .contacto-link.filled:hover{background:rgba(255,255,255,0.9);}
+    footer{padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(0,0,0,0.1);font-size:0.75rem;color:var(--c4);}
+    @media(max-width:700px){
+      nav{padding:0.8rem 1.2rem;}
+      section,.metricas,.contacto{padding:2rem 1.2rem;}
+      .hero{grid-template-columns:1fr;gap:1.5rem;padding:1.5rem 1.2rem;}
+      .sobre-inner{grid-template-columns:1fr;}
+      .met-grid{grid-template-columns:repeat(2,1fr);}
+      .proyectos-grid{grid-template-columns:1fr;}
+      .servicios-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Anna Ramírez</div>
+  <div class="nav-links">
+    <a href="#sobre">Sobre mí</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
+
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Redes Sociales · Identidad Visual · Estrategia Digital · Meta ads</p>
+    <h1 class="hero-name">Marcas que<br><em>conectan</em><br>de verdad</h1>
+    <p class="hero-desc">Diseño estrategias digitales que generan resultados medibles. Gestiono marcas, comunidades y contenido para que tu negocio crezca donde está tu audiencia.</p>
+    <button class="hero-cta" onclick="document.getElementById('proyectos').scrollIntoView({behavior:'smooth'})">Ver proyectos →</button>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-main">
+      <span class="tag">Alcance real — mayo 2026</span>
+      <div class="stat">1,6<span style="font-size:1.8rem">M</span></div>
+      <div class="stat-label">reproducciones en 30 días para un cliente, con 98,4% de audiencia nueva</div>
+    </div>
+    <div class="hero-cards-row">
+      <div class="hero-card-sm">
+        <div class="tag">Cuentas gestionadas</div>
+        <div class="val accent">5+</div>
+      </div>
+      <div class="hero-card-sm">
+        <div class="tag">Sectores distintos</div>
+        <div class="val">4</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="sobre-inner">
+    <div>
+      <p class="section-label">Sobre mí</p>
+      <div class="sobre-number">01</div>
+    </div>
+    <div>
+      <p class="sobre-bio">Soy <strong>Anna Ramírez</strong>, especialista en marketing digital y comunicación de marca. Trabajo con negocios de sectores muy distintos: salud, hostelería, moda, deporte... ayudándoles a construir una presencia digital coherente y con resultados reales.</p>
+      <p class="sobre-bio">Graduada en <strong>Multimedia y artes digitales</strong>, con másters en Marketing Digital e Inteligencia Artificial orientada a los negocios. También formo a profesionales y equipos en marketing digital e IA.</p>
+      <div class="skills-grid">
+        <span class="skill-tag">Social Media</span>
+        <span class="skill-tag">Identidad visual</span>
+        <span class="skill-tag">Estrategia de contenidos</span>
+        <span class="skill-tag">Community management</span>
+        <span class="skill-tag">Analítica e informes</span>
+        <span class="skill-tag">Meta ads</span>
+        <span class="skill-tag">IA aplicada</span>
+        <span class="skill-tag">Formación</span>
+        <span class="skill-tag">Consultoría</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="metricas" id="metricas">
+  <p class="section-label">Métricas reales</p>
+  <h2 class="section-title">Números que hablan</h2>
+  <div class="met-grid">
+    <div class="met-card">
+      <div class="met-client">Marca deportiva</div>
+      <div class="met-num">1,6<span>M</span></div>
+      <div class="met-label">reproducciones en Instagram en 30 días</div>
+      <div class="met-sub">+335 seguidores · 300K cuentas alcanzadas</div>
+    </div>
+    <div class="met-card">
+      <div class="met-client">Clínica ginecológica</div>
+      <div class="met-num">46<span>K</span></div>
+      <div class="met-label">reproducciones en Instagram en 30 días</div>
+      <div class="met-sub">62,8% audiencia nueva · 3.350 cuentas alcanzadas</div>
+    </div>
+    <div class="met-card">
+      <div class="met-client">Ginecóloga · Marca personal</div>
+      <div class="met-num">55<span>K</span></div>
+      <div class="met-label">visualizaciones en mayo 2026</div>
+      <div class="met-sub">1.521 interacciones · +63 seguidores</div>
+    </div>
+    <div class="met-card">
+      <div class="met-client">Hamburguesería</div>
+      <div class="met-num">20<span>K</span></div>
+      <div class="met-label">visualizaciones en mayo 2026</div>
+      <div class="met-sub">516 interacciones · 69 piezas publicadas</div>
+    </div>
+  </div>
+</section>
+
+<section class="proyectos" id="proyectos">
+  <p class="section-label">Proyectos</p>
+  <h2 class="section-title">Casos de éxito</h2>
+  <div class="proyectos-grid">
+    <div class="proyecto-card">
+      <div class="proyecto-num">001</div>
+      <div class="proyecto-name">Marca deportiva</div>
+      <div class="proyecto-type">Redes sociales · Estrategia · Identidad · Meta ads</div>
+      <div class="proyecto-metric">1,6M reproducciones · +335 seguidores en 30 días</div>
+    </div>
+    <div class="proyecto-card">
+      <div class="proyecto-num">002</div>
+      <div class="proyecto-name">Clínica ginecológica</div>
+      <div class="proyecto-type">Social Media · Analítica · Reporting</div>
+      <div class="proyecto-metric">46K reproducciones · 3.350 cuentas alcanzadas</div>
+    </div>
+    <div class="proyecto-card">
+      <div class="proyecto-num">003</div>
+      <div class="proyecto-name">Ginecóloga — Marca personal</div>
+      <div class="proyecto-type">Personal branding · Contenidos</div>
+      <div class="proyecto-metric">55K visualizaciones · 1.521 interacciones</div>
+    </div>
+    <div class="proyecto-card">
+      <div class="proyecto-num">004</div>
+      <div class="proyecto-name">Hamburguesería</div>
+      <div class="proyecto-type">Social Media · Community management</div>
+      <div class="proyecto-metric">20K visualizaciones · 516 interacciones</div>
+    </div>
+    <div class="proyecto-card">
+      <div class="proyecto-num">005</div>
+      <div class="proyecto-name">The Noox Festival</div>
+      <div class="proyecto-type">Ponencia · Marketing experiencial</div>
+      <div class="proyecto-metric">Speaker · De la música al algoritmo</div>
+    </div>
+    <div class="proyecto-card">
+      <div class="proyecto-num">006</div>
+      <div class="proyecto-name">Formación institucional</div>
+      <div class="proyecto-type">Consultoría · Formación digital</div>
+      <div class="proyecto-metric">6 módulos · Marketing, IA, LinkedIn y más</div>
+    </div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios">
+  <p class="section-label">Servicios</p>
+  <h2 class="section-title">¿En qué puedo ayudarte?</h2>
+  <div class="servicios-grid">
+    <div class="servicio-card">
+      <div class="servicio-num">01</div>
+      <div class="servicio-title">Gestión de redes sociales</div>
+      <div class="servicio-desc">Estrategia de contenidos, publicación, community management y reporting mensual. Gestiono tu presencia digital para que tú puedas centrarte en tu negocio.</div>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">02</div>
+      <div class="servicio-title">Identidad visual y diseño</div>
+      <div class="servicio-desc">Creación o actualización de identidad de marca: paleta, tipografía, tono visual y plantillas para redes. Diseño que comunica quién eres antes de que digas nada.</div>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">03</div>
+      <div class="servicio-title">Estrategia digital y consultoría</div>
+      <div class="servicio-desc">Diagnóstico de tu presencia digital, definición de objetivos y hoja de ruta. Para negocios que quieren crecer con criterio, no solo con más publicaciones.</div>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">04</div>
+      <div class="servicio-title">Formación en marketing e IA</div>
+      <div class="servicio-desc">Talleres y cursos a medida para equipos, empresas e instituciones: redes sociales, estrategia digital, LinkedIn, ChatGPT y herramientas de IA.</div>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <p class="section-label">Contacto</p>
+  <h2 class="section-title">Hablemos de<br>tu proyecto</h2>
+  <p class="contacto-sub">¿Tienes un negocio que merece más visibilidad? Cuéntame en qué estás trabajando.</p>
+  <div class="contacto-links">
+    <a class="contacto-link filled" href="mailto:hi@annaramirez.es">Escribir un email</a>
+    <a class="contacto-link" href="https://www.linkedin.com/in/anna-ram%C3%ADrez-miquel/" target="_blank">LinkedIn →</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Anna Ramírez</span>
+  <span>Valencia, España</span>
+</footer>
+
+</body>
+</html>
